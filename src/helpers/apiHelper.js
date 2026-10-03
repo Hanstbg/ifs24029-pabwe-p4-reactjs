@@ -1,5 +1,4 @@
-const DEFAULT_BASE_URL = "https://open-api.delcom.org/api/v1";
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || DEFAULT_BASE_URL;
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const TOKEN_KEY = "accessToken";
 
 export function getAccessToken() {

@@ -6,6 +6,7 @@ import store from "./store";
 import App from "./App";
 import { getAccessToken } from "./helpers/apiHelper";
 import { asyncFetchMe } from "./features/auth/states/action";
+import "@fontsource-variable/plus-jakarta-sans";
 import "./index.css";
 
 if (getAccessToken()) {
