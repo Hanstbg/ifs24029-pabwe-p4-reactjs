@@ -77,4 +77,13 @@ describe("apiHelper", () => {
     });
     await expect(apiHelper("/x")).rejects.toThrow("Terjadi kesalahan pada server.");
   });
+
+  it("memakai base URL default saat VITE_API_BASE_URL kosong", async () => {
+    vi.resetModules();
+    vi.stubEnv("VITE_API_BASE_URL", "");
+    const fresh = await import("./apiHelper");
+    await fresh.default("/users");
+    expect(global.fetch.mock.calls[0][0]).toBe("https://open-api.delcom.org/api/v1/users");
+    vi.unstubAllEnvs();
+  });
 });
