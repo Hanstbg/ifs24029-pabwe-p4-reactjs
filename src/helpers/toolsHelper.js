@@ -1,6 +1,12 @@
-import Swal from "sweetalert2";
+// SweetAlert2 dimuat hanya saat dialog pertama kali dibutuhkan,
+// sehingga tidak ikut membebani bundel awal halaman.
+async function loadSwal() {
+  const module = await import("sweetalert2");
+  return module.default;
+}
 
 export async function showSuccessDialog(message) {
+  const Swal = await loadSwal();
   return Swal.fire({
     icon: "success",
     title: "Berhasil",
@@ -10,6 +16,7 @@ export async function showSuccessDialog(message) {
 }
 
 export async function showErrorDialog(message) {
+  const Swal = await loadSwal();
   return Swal.fire({
     icon: "error",
     title: "Terjadi Kesalahan",
@@ -19,6 +26,7 @@ export async function showErrorDialog(message) {
 }
 
 export async function showConfirmDialog(message) {
+  const Swal = await loadSwal();
   const result = await Swal.fire({
     icon: "warning",
     title: "Apakah kamu yakin?",
