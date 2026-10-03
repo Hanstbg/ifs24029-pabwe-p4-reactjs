@@ -24,11 +24,11 @@ export default function RegisterPage() {
 
       <form onSubmit={handleSubmit} className="space-y-4" data-testid="register-form">
         <div>
-          <label htmlFor="register-name" className="block text-sm font-semibold text-slate-700 mb-1.5">
+          <label htmlFor="register-name-input" className="block text-sm font-semibold text-slate-700 mb-1.5">
             Nama Lengkap
           </label>
           <input
-            id="register-name"
+            id="register-name-input"
             type="text"
             required
             value={name}
@@ -37,11 +37,11 @@ export default function RegisterPage() {
           />
         </div>
         <div>
-          <label htmlFor="register-email" className="block text-sm font-semibold text-slate-700 mb-1.5">
+          <label htmlFor="register-email-input" className="block text-sm font-semibold text-slate-700 mb-1.5">
             Email
           </label>
           <input
-            id="register-email"
+            id="register-email-input"
             type="email"
             required
             value={email}
@@ -50,11 +50,11 @@ export default function RegisterPage() {
           />
         </div>
         <div>
-          <label htmlFor="register-password" className="block text-sm font-semibold text-slate-700 mb-1.5">
+          <label htmlFor="register-password-input" className="block text-sm font-semibold text-slate-700 mb-1.5">
             Kata Sandi
           </label>
           <input
-            id="register-password"
+            id="register-password-input"
             type="password"
             required
             minLength={6}
@@ -64,6 +64,7 @@ export default function RegisterPage() {
           />
         </div>
         <button
+          id="register-submit-button"
           type="submit"
           disabled={isLoading}
           className="btn-primary w-full py-3"

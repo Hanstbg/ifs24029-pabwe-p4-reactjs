@@ -23,11 +23,11 @@ export default function LoginPage() {
 
       <form onSubmit={handleSubmit} className="space-y-4" data-testid="login-form">
         <div>
-          <label htmlFor="login-email" className="block text-sm font-semibold text-slate-700 mb-1.5">
+          <label htmlFor="login-email-input" className="block text-sm font-semibold text-slate-700 mb-1.5">
             Email
           </label>
           <input
-            id="login-email"
+            id="login-email-input"
             type="email"
             required
             value={email}
@@ -36,11 +36,11 @@ export default function LoginPage() {
           />
         </div>
         <div>
-          <label htmlFor="login-password" className="block text-sm font-semibold text-slate-700 mb-1.5">
+          <label htmlFor="login-password-input" className="block text-sm font-semibold text-slate-700 mb-1.5">
             Kata Sandi
           </label>
           <input
-            id="login-password"
+            id="login-password-input"
             type="password"
             required
             value={password}
@@ -49,6 +49,7 @@ export default function LoginPage() {
           />
         </div>
         <button
+          id="login-submit-button"
           type="submit"
           disabled={isLoading}
           className="btn-primary w-full py-3"
