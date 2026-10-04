@@ -10,8 +10,6 @@ export default function NavbarComponent({ onMenuClick }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const displayName = user?.name ?? "Pengguna";
-
   function handleLogout() {
     dispatch(asyncLogoutUser());
     navigate("/auth/login", { replace: true });
@@ -38,9 +36,6 @@ export default function NavbarComponent({ onMenuClick }) {
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          aria-label={`Menu akun ${displayName}`}
-          aria-haspopup="menu"
-          aria-expanded={isOpen}
           className="flex items-center gap-2 rounded-xl px-2 py-1.5 hover:bg-slate-100 transition"
         >
           <span className="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 text-white flex items-center justify-center text-sm font-bold overflow-hidden ring-2 ring-white shadow">
@@ -53,9 +48,9 @@ export default function NavbarComponent({ onMenuClick }) {
             )}
           </span>
           <span className="text-sm font-semibold text-slate-700 hidden sm:inline">
-            {displayName}
+            {user?.name ?? "Pengguna"}
           </span>
-          <IconChevronDown size={16} className="text-slate-600" aria-hidden="true" />
+          <IconChevronDown size={16} className="text-slate-600" />
         </button>
 
         {isOpen && (
@@ -78,7 +73,7 @@ export default function NavbarComponent({ onMenuClick }) {
               onClick={handleLogout}
               className="w-full flex items-center gap-2 px-4 py-2 text-sm text-rose-700 hover:bg-rose-50"
             >
-              <IconLogout size={16} aria-hidden="true" /> Keluar
+              <IconLogout size={16} /> Keluar
             </button>
           </div>
         )}
