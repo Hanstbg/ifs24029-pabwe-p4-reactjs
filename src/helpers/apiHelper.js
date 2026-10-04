@@ -17,7 +17,7 @@ export default async function apiHelper(
   path,
   { method = "GET", params, body, isFormData = false } = {}
 ) {
-  const url = new URL(`${BASE_URL}${path}`);
+  const url = new URL(`${BASE_URL}${path}`, window.location.origin);
   if (params) {
     Object.entries(params).forEach(([key, value]) => {
       if (value !== undefined && value !== null && value !== "") {

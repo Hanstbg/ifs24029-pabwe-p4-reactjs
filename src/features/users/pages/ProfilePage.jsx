@@ -79,7 +79,7 @@ export default function ProfilePage() {
 
   if (isLoading && !profile) {
     return (
-      <p className="text-sm text-slate-500" role="status">
+      <p className="text-sm text-slate-600" role="status">
         Memuat profil...
       </p>
     );
@@ -99,7 +99,7 @@ export default function ProfilePage() {
           </span>
           <div className="min-w-0">
             <h1 className="text-2xl font-extrabold tracking-tight">Profil Saya</h1>
-            <p className="text-sm text-indigo-100 truncate">{profile?.email ?? "Kelola informasi akun dan keamananmu."}</p>
+            <p className="text-sm text-white truncate">{profile?.email ?? "Kelola informasi akun dan keamananmu."}</p>
           </div>
         </div>
       </div>
@@ -164,7 +164,7 @@ export default function ProfilePage() {
               type="email"
               value={profile?.email ?? ""}
               readOnly
-              className="input-base bg-slate-50 text-slate-500 cursor-not-allowed"
+              className="input-base bg-slate-50 text-slate-600 cursor-not-allowed"
             />
           </div>
           <button
@@ -221,7 +221,7 @@ export default function ProfilePage() {
               className="input-base"
             />
             {passwordMismatch && (
-              <p className="text-xs text-rose-600 mt-1">Konfirmasi kata sandi tidak sama.</p>
+              <p className="text-xs text-rose-700 mt-1">Konfirmasi kata sandi tidak sama.</p>
             )}
           </div>
           <button

@@ -29,7 +29,7 @@ export default function AuthLayout() {
       </div>
 
       <div className="flex items-center justify-center p-4 sm:p-8">
-        <div className="w-full max-w-md card p-6 sm:p-8 animate-fade-up">
+        <div className="w-full max-w-md card p-6 sm:p-8">
           <div className="flex items-center gap-2.5 mb-6 lg:hidden">
             <img src="/logo.svg" alt="Logo" className="w-9 h-9" />
             <span className="font-extrabold text-slate-900 text-lg">Lost &amp; Found</span>

@@ -5,8 +5,8 @@ import LoginPage from "./features/auth/pages/LoginPage";
 import RegisterPage from "./features/auth/pages/RegisterPage";
 import ProfilePage from "./features/users/pages/ProfilePage";
 import LostFoundLayout from "./features/lost-founds/layouts/LostFoundLayout";
+import HomePage from "./features/lost-founds/pages/HomePage";
 
-const HomePage = lazy(() => import("./features/lost-founds/pages/HomePage"));
 const DetailPage = lazy(() => import("./features/lost-founds/pages/DetailPage"));
 const UsersPage = lazy(() => import("./features/users/pages/UsersPage"));
 

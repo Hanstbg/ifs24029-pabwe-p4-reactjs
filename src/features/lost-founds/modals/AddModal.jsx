@@ -116,7 +116,7 @@ export default function AddModal({ isOpen, onClose, onAdded }) {
                     type="button"
                     onClick={clearFile}
                     aria-label="Hapus gambar"
-                    className="absolute top-2 right-2 rounded-lg bg-white/95 p-1.5 text-rose-600 shadow hover:bg-rose-50"
+                    className="absolute top-2 right-2 rounded-lg bg-white/95 p-1.5 text-rose-700 shadow hover:bg-rose-50"
                   >
                     <IconTrash size={16} />
                   </button>
@@ -136,7 +136,7 @@ export default function AddModal({ isOpen, onClose, onAdded }) {
               className="mt-2 w-full text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-indigo-50 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-indigo-700 hover:file:bg-indigo-100"
             />
             {fileError && (
-              <p role="alert" className="mt-1 text-xs text-rose-600">
+              <p role="alert" className="mt-1 text-xs text-rose-700">
                 {fileError}
               </p>
             )}
@@ -154,4 +154,4 @@ export default function AddModal({ isOpen, onClose, onAdded }) {
       </div>
     </div>
   );
-}   
+}

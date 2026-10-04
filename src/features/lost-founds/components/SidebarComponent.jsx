@@ -64,7 +64,7 @@ export default function SidebarComponent({ isOpen, onClose }) {
 
         <div className="absolute bottom-4 left-3 right-3 rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 p-4 text-white shadow-lg">
           <p className="text-sm font-bold">Kehilangan sesuatu?</p>
-          <p className="text-xs text-indigo-100 mt-1">Buat laporan agar barangmu cepat kembali.</p>
+          <p className="text-xs text-white mt-1">Buat laporan agar barangmu cepat kembali.</p>
         </div>
       </aside>
     </>

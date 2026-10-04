@@ -19,7 +19,7 @@ export default function LoginPage() {
   return (
     <div>
       <h1 className="text-2xl font-extrabold tracking-tight text-slate-900">Selamat datang kembali</h1>
-      <p className="text-sm text-slate-500 mb-5">Masuk untuk mengelola laporan barangmu.</p>
+      <p className="text-sm text-slate-600 mb-5">Masuk untuk mengelola laporan barangmu.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4" data-testid="login-form">
         <div>
@@ -58,9 +58,9 @@ export default function LoginPage() {
         </button>
       </form>
 
-      <p className="text-sm text-slate-500 mt-5 text-center">
+      <p className="text-sm text-slate-600 mt-5 text-center">
         Belum punya akun?{" "}
-        <Link to="/auth/register" className="text-indigo-600 font-semibold hover:underline">
+        <Link to="/auth/register" className="text-indigo-600 font-semibold underline hover:no-underline">
           Daftar
         </Link>
       </p>

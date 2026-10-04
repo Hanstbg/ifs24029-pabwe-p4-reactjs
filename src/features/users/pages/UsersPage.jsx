@@ -5,12 +5,12 @@ import { asyncFetchUsers } from "../states/action";
 import { getInitial } from "../../../helpers/dataHelper";
 
 const AVATAR_COLORS = [
-  "from-indigo-500 to-violet-600",
-  "from-rose-500 to-pink-600",
-  "from-sky-500 to-cyan-600",
-  "from-emerald-500 to-teal-600",
-  "from-amber-500 to-orange-600",
-  "from-fuchsia-500 to-purple-600",
+  "from-indigo-600 to-violet-700",
+  "from-rose-600 to-pink-700",
+  "from-sky-700 to-cyan-700",
+  "from-emerald-700 to-teal-700",
+  "from-amber-700 to-orange-700",
+  "from-fuchsia-600 to-purple-700",
 ];
 
 export default function UsersPage() {
@@ -40,7 +40,7 @@ export default function UsersPage() {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-extrabold tracking-tight text-slate-900">Daftar Pengguna</h1>
-          <p className="text-sm text-slate-500 mt-1">Seluruh pengguna terdaftar di aplikasi.</p>
+          <p className="text-sm text-slate-600 mt-1">Seluruh pengguna terdaftar di aplikasi.</p>
         </div>
         <span className="inline-flex items-center gap-2 self-start rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold px-3.5 py-1.5">
           <IconUsers size={15} /> {users.length} pengguna
@@ -59,7 +59,7 @@ export default function UsersPage() {
       </div>
 
       {isLoading && (
-        <p className="text-sm text-slate-500 animate-pulse" role="status">
+        <p className="text-sm text-slate-600" role="status">
           Memuat data pengguna...
         </p>
       )}
@@ -67,7 +67,7 @@ export default function UsersPage() {
       {!isLoading && filteredUsers.length === 0 && (
         <div className="flex flex-col items-center text-center py-12 text-slate-600">
           <IconUserOff size={44} stroke={1.3} />
-          <p className="text-sm text-slate-500 mt-2">Tidak ada pengguna yang cocok.</p>
+          <p className="text-sm text-slate-600 mt-2">Tidak ada pengguna yang cocok.</p>
         </div>
       )}
 
@@ -101,7 +101,7 @@ export default function UsersPage() {
                   </span>
                 )}
               </p>
-              <p className="text-xs text-slate-500 truncate">{user.email}</p>
+              <p className="text-xs text-slate-600 truncate">{user.email}</p>
             </div>
           </li>
         ))}

@@ -43,19 +43,19 @@ export default function DetailPage() {
 
   if (isLoading && !lostFound) {
     return (
-      <p className="text-sm text-slate-500" role="status">
+      <p className="text-sm text-slate-600" role="status">
         Memuat detail laporan...
       </p>
     );
   }
 
   if (!lostFound) {
-    return <p className="text-sm text-slate-500">Laporan tidak ditemukan.</p>;
+    return <p className="text-sm text-slate-600">Laporan tidak ditemukan.</p>;
   }
 
   return (
     <div className="max-w-3xl mx-auto space-y-5">
-      <Link to="/" className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-indigo-600 transition">
+      <Link to="/" className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 hover:text-indigo-600 transition">
         <IconArrowLeft size={16} /> Kembali ke daftar
       </Link>
 
@@ -90,7 +90,7 @@ export default function DetailPage() {
             </span>
             <span
               className={`inline-flex items-center gap-1 text-xs font-semibold px-3 py-1 rounded-full ${
-                lostFound.is_completed ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700"
+                lostFound.is_completed ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-800"
               }`}
             >
               {lostFound.is_completed ? <IconCircleCheck size={14} /> : <IconCircleDashed size={14} />}
@@ -99,7 +99,7 @@ export default function DetailPage() {
           </div>
 
           <h1 className="text-2xl font-extrabold tracking-tight text-slate-900">{lostFound.title}</h1>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-slate-600">
             Dilaporkan oleh {lostFound.user?.name ?? "Pengguna"} &middot; {formatDate(lostFound.created_at)}
           </p>
           <p className="text-sm sm:text-base leading-relaxed text-slate-700 whitespace-pre-line">{lostFound.description}</p>

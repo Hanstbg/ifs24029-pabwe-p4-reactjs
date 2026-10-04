@@ -76,7 +76,7 @@ export default function HomePage() {
         <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">Dashboard Laporan</h1>
-            <p className="text-sm text-indigo-100 mt-1">Kelola laporan barang hilang & ditemukan.</p>
+            <p className="text-sm text-white mt-1">Kelola laporan barang hilang & ditemukan.</p>
           </div>
           <button
             type="button"
@@ -122,14 +122,14 @@ export default function HomePage() {
             <Chip
               active={completedOnly}
               onClick={() => setCompletedOnly((prev) => !prev)}
-              activeClass="bg-emerald-600 text-white border-emerald-600 shadow-md shadow-emerald-200"
+              activeClass="bg-emerald-700 text-white border-emerald-700 shadow-md shadow-emerald-200"
             >
               Selesai
             </Chip>
             <Chip
               active={mineOnly}
               onClick={() => setMineOnly((prev) => !prev)}
-              activeClass="bg-amber-500 text-white border-amber-500 shadow-md shadow-amber-200"
+              activeClass="bg-amber-700 text-white border-amber-700 shadow-md shadow-amber-200"
             >
               Milik Saya
             </Chip>
@@ -137,7 +137,7 @@ export default function HomePage() {
         </div>
 
         {isLoading && (
-          <p className="text-sm text-slate-500 animate-pulse" role="status">
+          <p className="text-sm text-slate-600" role="status">
             Memuat data laporan...
           </p>
         )}
@@ -145,7 +145,7 @@ export default function HomePage() {
         {!isLoading && filteredItems.length === 0 && (
           <div className="flex flex-col items-center text-center py-12 text-slate-600">
             <IconInbox size={44} stroke={1.3} />
-            <p className="text-sm text-slate-500 mt-2">Belum ada laporan yang cocok.</p>
+            <p className="text-sm text-slate-600 mt-2">Belum ada laporan yang cocok.</p>
           </div>
         )}
 
@@ -177,7 +177,7 @@ export default function HomePage() {
                     {item.status === "lost" ? "Hilang" : "Ditemukan"}
                   </span>
                   {Boolean(item.is_completed) && (
-                    <span className="absolute top-3 right-3 inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 shadow">
+                    <span className="absolute top-3 right-3 inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 shadow">
                       <IconCircleCheck size={13} /> Tuntas
                     </span>
                   )}
@@ -185,7 +185,7 @@ export default function HomePage() {
                 <div className="p-4 min-w-0">
                   <p className="font-bold text-slate-900 truncate">{item.title}</p>
                   {item.description && (
-                    <p className="text-sm text-slate-500 line-clamp-2 mt-0.5">{item.description}</p>
+                    <p className="text-sm text-slate-600 line-clamp-2 mt-0.5">{item.description}</p>
                   )}
                   <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-slate-600">
                     <IconCalendar size={13} /> {formatDate(item.created_at)}
@@ -225,7 +225,7 @@ function StatCard({ icon: Icon, label, value, color }) {
         <Icon size={22} />
       </span>
       <div>
-        <p className="text-xs font-medium text-slate-500">{label}</p>
+        <p className="text-xs font-medium text-slate-600">{label}</p>
         <p className="text-2xl font-extrabold text-slate-900 leading-tight">{value}</p>
       </div>
     </div>

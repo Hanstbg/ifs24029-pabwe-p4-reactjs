@@ -20,7 +20,7 @@ export default function RegisterPage() {
   return (
     <div>
       <h1 className="text-2xl font-extrabold tracking-tight text-slate-900">Buat akun baru</h1>
-      <p className="text-sm text-slate-500 mb-5">Daftar untuk mulai melaporkan barang.</p>
+      <p className="text-sm text-slate-600 mb-5">Daftar untuk mulai melaporkan barang.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4" data-testid="register-form">
         <div>
@@ -73,9 +73,9 @@ export default function RegisterPage() {
         </button>
       </form>
 
-      <p className="text-sm text-slate-500 mt-5 text-center">
+      <p className="text-sm text-slate-600 mt-5 text-center">
         Sudah punya akun?{" "}
-        <Link to="/auth/login" className="text-indigo-600 font-semibold hover:underline">
+        <Link to="/auth/login" className="text-indigo-600 font-semibold underline hover:no-underline">
           Masuk
         </Link>
       </p>
