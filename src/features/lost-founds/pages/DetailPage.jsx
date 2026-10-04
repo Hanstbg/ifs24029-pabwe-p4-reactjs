@@ -43,14 +43,22 @@ export default function DetailPage() {
 
   if (isLoading && !lostFound) {
     return (
-      <p className="text-sm text-slate-600" role="status">
-        Memuat detail laporan...
-      </p>
+      <div>
+        <h1 className="sr-only">Detail Laporan</h1>
+        <p className="text-sm text-slate-600" role="status">
+          Memuat detail laporan...
+        </p>
+      </div>
     );
   }
 
   if (!lostFound) {
-    return <p className="text-sm text-slate-600">Laporan tidak ditemukan.</p>;
+    return (
+      <div>
+        <h1 className="sr-only">Detail Laporan</h1>
+        <p className="text-sm text-slate-600">Laporan tidak ditemukan.</p>
+      </div>
+    );
   }
 
   return (

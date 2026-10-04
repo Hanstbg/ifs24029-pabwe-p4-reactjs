@@ -79,9 +79,12 @@ export default function ProfilePage() {
 
   if (isLoading && !profile) {
     return (
-      <p className="text-sm text-slate-600" role="status">
-        Memuat profil...
-      </p>
+      <div>
+        <h1 className="sr-only">Profil Saya</h1>
+        <p className="text-sm text-slate-600" role="status">
+          Memuat profil...
+        </p>
+      </div>
     );
   }
 
