@@ -45,7 +45,7 @@ export default function ChangeCoverModal({ isOpen, onClose, lostFoundId }) {
             {preview ? (
               <img src={preview} alt="Pratinjau cover" className="w-full h-full object-cover" />
             ) : (
-              <IconPhoto size={32} className="text-slate-400" />
+              <IconPhoto size={32} className="text-slate-600" />
             )}
           </div>
 

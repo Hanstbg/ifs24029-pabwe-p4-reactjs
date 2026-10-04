@@ -48,7 +48,7 @@ export default function UsersPage() {
       </div>
 
       <div className="relative max-w-md">
-        <IconSearch size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+        <IconSearch size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-600" />
         <input
           type="search"
           value={search}
@@ -65,7 +65,7 @@ export default function UsersPage() {
       )}
 
       {!isLoading && filteredUsers.length === 0 && (
-        <div className="flex flex-col items-center text-center py-12 text-slate-400">
+        <div className="flex flex-col items-center text-center py-12 text-slate-600">
           <IconUserOff size={44} stroke={1.3} />
           <p className="text-sm text-slate-500 mt-2">Tidak ada pengguna yang cocok.</p>
         </div>

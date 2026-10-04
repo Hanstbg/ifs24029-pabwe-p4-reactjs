@@ -98,7 +98,7 @@ export default function HomePage() {
       <div className="card p-4 sm:p-5 space-y-5">
         <div className="flex flex-col lg:flex-row lg:items-center gap-3">
           <div className="relative flex-1">
-            <IconSearch size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+            <IconSearch size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-600" />
             <input
               type="search"
               value={search}
@@ -143,7 +143,7 @@ export default function HomePage() {
         )}
 
         {!isLoading && filteredItems.length === 0 && (
-          <div className="flex flex-col items-center text-center py-12 text-slate-400">
+          <div className="flex flex-col items-center text-center py-12 text-slate-600">
             <IconInbox size={44} stroke={1.3} />
             <p className="text-sm text-slate-500 mt-2">Belum ada laporan yang cocok.</p>
           </div>
@@ -187,7 +187,7 @@ export default function HomePage() {
                   {item.description && (
                     <p className="text-sm text-slate-500 line-clamp-2 mt-0.5">{item.description}</p>
                   )}
-                  <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-slate-400">
+                  <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-slate-600">
                     <IconCalendar size={13} /> {formatDate(item.created_at)}
                   </p>
                 </div>

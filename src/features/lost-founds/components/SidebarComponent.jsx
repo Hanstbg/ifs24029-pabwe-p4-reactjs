@@ -40,7 +40,7 @@ export default function SidebarComponent({ isOpen, onClose }) {
           </button>
         </div>
 
-        <p className="px-5 pt-5 pb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">Menu</p>
+        <p className="px-5 pt-5 pb-2 text-[11px] font-bold uppercase tracking-widest text-slate-600">Menu</p>
         <nav className="px-3 space-y-1">
           {links.map(({ to, label, icon: Icon, end }) => (
             <NavLink

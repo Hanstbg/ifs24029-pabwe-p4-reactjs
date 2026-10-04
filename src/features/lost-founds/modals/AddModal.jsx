@@ -106,7 +106,7 @@ export default function AddModal({ isOpen, onClose, onAdded }) {
 
           <div>
             <p className="block text-sm font-semibold text-slate-700 mb-1.5">
-              Gambar <span className="font-normal text-slate-400">(opsional)</span>
+              Gambar <span className="font-normal text-slate-600">(opsional)</span>
             </p>
             <div className="relative flex items-center justify-center rounded-xl border-2 border-dashed border-slate-300 h-36 overflow-hidden bg-slate-50">
               {preview ? (
@@ -122,7 +122,7 @@ export default function AddModal({ isOpen, onClose, onAdded }) {
                   </button>
                 </>
               ) : (
-                <div className="flex flex-col items-center text-slate-400">
+                <div className="flex flex-col items-center text-slate-600">
                   <IconPhoto size={30} stroke={1.4} />
                   <span className="text-xs mt-1">Pilih gambar barang</span>
                 </div>

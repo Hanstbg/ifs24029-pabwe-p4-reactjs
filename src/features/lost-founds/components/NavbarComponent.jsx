@@ -50,7 +50,7 @@ export default function NavbarComponent({ onMenuClick }) {
           <span className="text-sm font-semibold text-slate-700 hidden sm:inline">
             {user?.name ?? "Pengguna"}
           </span>
-          <IconChevronDown size={16} className="text-slate-400" />
+          <IconChevronDown size={16} className="text-slate-600" />
         </button>
 
         {isOpen && (

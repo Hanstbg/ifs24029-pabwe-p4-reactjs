@@ -64,7 +64,7 @@ export default function DetailPage() {
           {lostFound.cover ? (
             <img src={lostFound.cover} alt={lostFound.title} className="w-full h-full object-cover" />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-slate-400">
+            <div className="w-full h-full flex items-center justify-center text-slate-600">
               <IconPhoto size={32} />
             </div>
           )}
