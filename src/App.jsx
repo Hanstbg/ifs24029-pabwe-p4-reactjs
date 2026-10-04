@@ -12,9 +12,12 @@ const UsersPage = lazy(() => import("./features/users/pages/UsersPage"));
 
 function PageFallback() {
   return (
-    <p role="status" className="py-12 text-center text-sm text-slate-600">
-      Memuat halaman...
-    </p>
+    <main className="min-h-screen flex flex-col items-center justify-center p-6">
+      <h1 className="sr-only">Lost &amp; Found</h1>
+      <p role="status" className="text-sm text-slate-600">
+        Memuat halaman...
+      </p>
+    </main>
   );
 }
 
