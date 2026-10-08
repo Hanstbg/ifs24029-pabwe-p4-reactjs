@@ -39,7 +39,10 @@ export default function AddModal({ isOpen, onClose, onAdded }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const success = await dispatch(asyncAddLostFound({ title, description, status }, file));
+    const payload = { title, description, status };
+    const success = await dispatch(
+      file ? asyncAddLostFound(payload, file) : asyncAddLostFound(payload)
+    );
     if (success) {
       resetTitle();
       resetDescription();

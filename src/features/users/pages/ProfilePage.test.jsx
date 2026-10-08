@@ -5,7 +5,7 @@ import { renderWithProviders, screen, waitFor } from "../../../test-utils";
 import * as userAction from "../states/action";
 import ProfilePage from "./ProfilePage";
 
-const sampleProfile = { id: 1, name: "Budi", bio: "Mahasiswa", photo: null };
+const sampleProfile = { id: 1, name: "Budi", email: "budi@mail.com", photo: null };
 const withProfile = (profile = sampleProfile) => ({
   preloadedState: { users: { profile, isProfile: false } },
 });
@@ -36,13 +36,13 @@ describe("ProfilePage", () => {
   it("mengisi form otomatis dari data profile", () => {
     renderWithProviders(<ProfilePage />, withProfile());
     expect(screen.getByLabelText(/nama lengkap/i)).toHaveValue("Budi");
-    expect(screen.getByLabelText(/^bio$/i)).toHaveValue("Mahasiswa");
+    expect(screen.getByLabelText(/^email$/i)).toHaveValue("budi@mail.com");
   });
 
-  it("memakai string kosong saat name/bio profile tidak ada", () => {
+  it("memakai string kosong saat name/email profile tidak ada", () => {
     renderWithProviders(<ProfilePage />, withProfile({ id: 2 }));
     expect(screen.getByLabelText(/nama lengkap/i)).toHaveValue("");
-    expect(screen.getByLabelText(/^bio$/i)).toHaveValue("");
+    expect(screen.getByLabelText(/^email$/i)).toHaveValue("");
   });
 
   it("menampilkan foto profil bila tersedia", () => {
@@ -60,10 +60,12 @@ describe("ProfilePage", () => {
 
     await user.clear(screen.getByLabelText(/nama lengkap/i));
     await user.type(screen.getByLabelText(/nama lengkap/i), "Budi Santoso");
-    await user.type(screen.getByLabelText(/^bio$/i), " UI");
     await user.click(screen.getByRole("button", { name: /simpan profil/i }));
 
-    expect(changeSpy).toHaveBeenCalledWith({ name: "Budi Santoso", bio: "Mahasiswa UI" });
+    expect(changeSpy).toHaveBeenCalledWith({
+      name: "Budi Santoso",
+      email: "budi@mail.com",
+    });
   });
 
   it("tombol unggah foto nonaktif sebelum memilih berkas", () => {
