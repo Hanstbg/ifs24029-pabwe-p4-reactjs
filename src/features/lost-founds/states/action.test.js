@@ -139,6 +139,83 @@ describe("lostFounds async actions", () => {
     expect(result).toBe(false);
   });
 
+  it("asyncAddLostFound dengan cover: id langsung dari respons dipakai untuk unggah cover", async () => {
+    lostFoundApi.addLostFound.mockResolvedValue({ data: { id: 7 } });
+    lostFoundApi.changeLostFoundCover.mockResolvedValue({});
+    const dispatch = vi.fn();
+    const file = new File(["x"], "cover.png");
+
+    const result = await asyncAddLostFound({ title: "Dompet" }, file)(dispatch);
+
+    expect(lostFoundApi.changeLostFoundCover).toHaveBeenCalledWith(7, file);
+    expect(showSuccessDialog).toHaveBeenCalledWith("Laporan berhasil ditambahkan.");
+    expect(result).toBe(true);
+  });
+
+  it("asyncAddLostFound dengan cover: id dibaca dari lost_found_id atau lost_found.id", async () => {
+    lostFoundApi.changeLostFoundCover.mockResolvedValue({});
+    const file = new File(["x"], "cover.png");
+
+    lostFoundApi.addLostFound.mockResolvedValueOnce({ data: { lost_found_id: 8 } });
+    await asyncAddLostFound({ title: "A" }, file)(vi.fn());
+    expect(lostFoundApi.changeLostFoundCover).toHaveBeenLastCalledWith(8, file);
+
+    lostFoundApi.addLostFound.mockResolvedValueOnce({ data: { lost_found: { id: 9 } } });
+    await asyncAddLostFound({ title: "B" }, file)(vi.fn());
+    expect(lostFoundApi.changeLostFoundCover).toHaveBeenLastCalledWith(9, file);
+  });
+
+  it("asyncAddLostFound dengan cover: id dicari dari daftar saat respons tanpa id", async () => {
+    lostFoundApi.addLostFound.mockResolvedValue({ data: {} });
+    lostFoundApi.getLostFounds.mockResolvedValue({
+      data: {
+        lost_founds: [
+          { id: 3, title: "Dompet", description: "Kantin" },
+          { id: 5, title: "Dompet", description: "Kantin" },
+          { id: 6, title: "Lain", description: "Lain" },
+        ],
+      },
+    });
+    lostFoundApi.changeLostFoundCover.mockResolvedValue({});
+    const file = new File(["x"], "cover.png");
+
+    const result = await asyncAddLostFound(
+      { title: "Dompet", description: "Kantin" },
+      file
+    )(vi.fn());
+
+    expect(lostFoundApi.getLostFounds).toHaveBeenCalledWith({ is_me: 1 });
+    expect(lostFoundApi.changeLostFoundCover).toHaveBeenCalledWith(5, file);
+    expect(result).toBe(true);
+  });
+
+  it("asyncAddLostFound dengan cover: laporan baru tidak ditemukan tetap sukses dengan pesan peringatan", async () => {
+    lostFoundApi.addLostFound.mockResolvedValue(undefined);
+    lostFoundApi.getLostFounds.mockResolvedValue({ data: { lost_founds: [] } });
+    const file = new File(["x"], "cover.png");
+
+    const result = await asyncAddLostFound({ title: "X", description: "Y" }, file)(vi.fn());
+
+    expect(lostFoundApi.changeLostFoundCover).not.toHaveBeenCalled();
+    expect(showSuccessDialog).toHaveBeenCalledWith(
+      expect.stringContaining("gambar gagal diunggah")
+    );
+    expect(result).toBe(true);
+  });
+
+  it("asyncAddLostFound dengan cover: unggah cover gagal tetap sukses dengan pesan peringatan", async () => {
+    lostFoundApi.addLostFound.mockResolvedValue({ data: { id: 4 } });
+    lostFoundApi.changeLostFoundCover.mockRejectedValue(new Error("gagal"));
+    const file = new File(["x"], "cover.png");
+
+    const result = await asyncAddLostFound({ title: "X" }, file)(vi.fn());
+
+    expect(showSuccessDialog).toHaveBeenCalledWith(
+      expect.stringContaining("gambar gagal diunggah")
+    );
+    expect(result).toBe(true);
+  });
+
   it("asyncChangeLostFound sukses: dispatch success dengan payload", async () => {
     lostFoundApi.changeLostFound.mockResolvedValue({ data: {} });
     const dispatch = vi.fn();

@@ -143,4 +143,21 @@ describe("HomePage", () => {
     await user.click(screen.getByRole("button", { name: /batal/i }));
     expect(screen.queryByTestId("add-form")).not.toBeInTheDocument();
   });
+
+  it("tetap menampilkan laporan yang tidak punya created_at", () => {
+    renderWithProviders(<HomePage />, {
+      preloadedState: {
+        lostFounds: {
+          lostFounds: [
+            { id: 10, title: "Tanpa Tanggal A", status: "lost", is_completed: 0 },
+            { id: 11, title: "Tanpa Tanggal B", status: "lost", is_completed: 0 },
+          ],
+          isLostFound: false,
+        },
+      },
+    });
+
+    expect(screen.getByText("Tanpa Tanggal A")).toBeInTheDocument();
+    expect(screen.getByText("Tanpa Tanggal B")).toBeInTheDocument();
+  });
 });

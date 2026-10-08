@@ -86,4 +86,13 @@ describe("apiHelper", () => {
     expect(global.fetch.mock.calls[0][0]).toBe("https://open-api.delcom.org/api/v1/users");
     vi.unstubAllEnvs();
   });
+
+  it("memakai VITE_API_BASE_URL bila terisi", async () => {
+    vi.resetModules();
+    vi.stubEnv("VITE_API_BASE_URL", "https://contoh.test/api");
+    const fresh = await import("./apiHelper");
+    await fresh.default("/users");
+    expect(global.fetch.mock.calls[0][0]).toBe("https://contoh.test/api/users");
+    vi.unstubAllEnvs();
+  });
 });
